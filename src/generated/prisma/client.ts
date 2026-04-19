@@ -76,3 +76,13 @@ export type Paiement = Prisma.PaiementModel
  * 
  */
 export type Note = Prisma.NoteModel
+/**
+ * Model Evenement
+ * 
+ */
+export type Evenement = Prisma.EvenementModel
+/**
+ * Model Modele
+ * 
+ */
+export type Modele = Prisma.ModeleModel

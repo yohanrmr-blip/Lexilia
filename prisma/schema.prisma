@@ -20,6 +20,7 @@ model Client {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   dossiers  Dossier[]
+  evenements Evenement[]
 }
 
 model Dossier {
@@ -38,6 +39,7 @@ model Dossier {
   honoraires    Honoraire[]
   factures      Facture[]
   notes         Note[]
+  evenements    Evenement[]
 }
 
 model Honoraire {
@@ -97,4 +99,30 @@ model Note {
   dossier   Dossier  @relation(fields: [dossierId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Evenement {
+  id          String    @id @default(cuid())
+  titre       String
+  description String?
+  debut       DateTime
+  fin         DateTime?
+  type        String    @default("rdv")
+  lieu        String?
+  dossierId   String?
+  dossier     Dossier?  @relation(fields: [dossierId], references: [id])
+  clientId    String?
+  client      Client?   @relation(fields: [clientId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Modele {
+  id          String   @id @default(cuid())
+  nom         String
+  description String?
+  categorie   String   @default("autre")
+  contenu     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

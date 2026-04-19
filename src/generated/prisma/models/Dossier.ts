@@ -234,6 +234,7 @@ export type DossierWhereInput = {
   honoraires?: Prisma.HonoraireListRelationFilter
   factures?: Prisma.FactureListRelationFilter
   notes?: Prisma.NoteListRelationFilter
+  evenements?: Prisma.EvenementListRelationFilter
 }
 
 export type DossierOrderByWithRelationInput = {
@@ -252,6 +253,7 @@ export type DossierOrderByWithRelationInput = {
   honoraires?: Prisma.HonoraireOrderByRelationAggregateInput
   factures?: Prisma.FactureOrderByRelationAggregateInput
   notes?: Prisma.NoteOrderByRelationAggregateInput
+  evenements?: Prisma.EvenementOrderByRelationAggregateInput
 }
 
 export type DossierWhereUniqueInput = Prisma.AtLeast<{
@@ -273,6 +275,7 @@ export type DossierWhereUniqueInput = Prisma.AtLeast<{
   honoraires?: Prisma.HonoraireListRelationFilter
   factures?: Prisma.FactureListRelationFilter
   notes?: Prisma.NoteListRelationFilter
+  evenements?: Prisma.EvenementListRelationFilter
 }, "id" | "reference">
 
 export type DossierOrderByWithAggregationInput = {
@@ -324,6 +327,7 @@ export type DossierCreateInput = {
   honoraires?: Prisma.HonoraireCreateNestedManyWithoutDossierInput
   factures?: Prisma.FactureCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementCreateNestedManyWithoutDossierInput
 }
 
 export type DossierUncheckedCreateInput = {
@@ -341,6 +345,7 @@ export type DossierUncheckedCreateInput = {
   honoraires?: Prisma.HonoraireUncheckedCreateNestedManyWithoutDossierInput
   factures?: Prisma.FactureUncheckedCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteUncheckedCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementUncheckedCreateNestedManyWithoutDossierInput
 }
 
 export type DossierUpdateInput = {
@@ -358,6 +363,7 @@ export type DossierUpdateInput = {
   honoraires?: Prisma.HonoraireUpdateManyWithoutDossierNestedInput
   factures?: Prisma.FactureUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateInput = {
@@ -375,6 +381,7 @@ export type DossierUncheckedUpdateInput = {
   honoraires?: Prisma.HonoraireUncheckedUpdateManyWithoutDossierNestedInput
   factures?: Prisma.FactureUncheckedUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUncheckedUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUncheckedUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierCreateManyInput = {
@@ -475,6 +482,11 @@ export type DossierScalarRelationFilter = {
   isNot?: Prisma.DossierWhereInput
 }
 
+export type DossierNullableScalarRelationFilter = {
+  is?: Prisma.DossierWhereInput | null
+  isNot?: Prisma.DossierWhereInput | null
+}
+
 export type DossierCreateNestedManyWithoutClientInput = {
   create?: Prisma.XOR<Prisma.DossierCreateWithoutClientInput, Prisma.DossierUncheckedCreateWithoutClientInput> | Prisma.DossierCreateWithoutClientInput[] | Prisma.DossierUncheckedCreateWithoutClientInput[]
   connectOrCreate?: Prisma.DossierCreateOrConnectWithoutClientInput | Prisma.DossierCreateOrConnectWithoutClientInput[]
@@ -563,6 +575,22 @@ export type DossierUpdateOneRequiredWithoutNotesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutNotesInput, Prisma.DossierUpdateWithoutNotesInput>, Prisma.DossierUncheckedUpdateWithoutNotesInput>
 }
 
+export type DossierCreateNestedOneWithoutEvenementsInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutEvenementsInput, Prisma.DossierUncheckedCreateWithoutEvenementsInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutEvenementsInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneWithoutEvenementsNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutEvenementsInput, Prisma.DossierUncheckedCreateWithoutEvenementsInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutEvenementsInput
+  upsert?: Prisma.DossierUpsertWithoutEvenementsInput
+  disconnect?: Prisma.DossierWhereInput | boolean
+  delete?: Prisma.DossierWhereInput | boolean
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutEvenementsInput, Prisma.DossierUpdateWithoutEvenementsInput>, Prisma.DossierUncheckedUpdateWithoutEvenementsInput>
+}
+
 export type DossierCreateWithoutClientInput = {
   id?: string
   reference: string
@@ -577,6 +605,7 @@ export type DossierCreateWithoutClientInput = {
   honoraires?: Prisma.HonoraireCreateNestedManyWithoutDossierInput
   factures?: Prisma.FactureCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementCreateNestedManyWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutClientInput = {
@@ -593,6 +622,7 @@ export type DossierUncheckedCreateWithoutClientInput = {
   honoraires?: Prisma.HonoraireUncheckedCreateNestedManyWithoutDossierInput
   factures?: Prisma.FactureUncheckedCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteUncheckedCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementUncheckedCreateNestedManyWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutClientInput = {
@@ -651,6 +681,7 @@ export type DossierCreateWithoutHonorairesInput = {
   client: Prisma.ClientCreateNestedOneWithoutDossiersInput
   factures?: Prisma.FactureCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementCreateNestedManyWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutHonorairesInput = {
@@ -667,6 +698,7 @@ export type DossierUncheckedCreateWithoutHonorairesInput = {
   updatedAt?: Date | string
   factures?: Prisma.FactureUncheckedCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteUncheckedCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementUncheckedCreateNestedManyWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutHonorairesInput = {
@@ -699,6 +731,7 @@ export type DossierUpdateWithoutHonorairesInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutDossiersNestedInput
   factures?: Prisma.FactureUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutHonorairesInput = {
@@ -715,6 +748,7 @@ export type DossierUncheckedUpdateWithoutHonorairesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   factures?: Prisma.FactureUncheckedUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUncheckedUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUncheckedUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutFacturesInput = {
@@ -731,6 +765,7 @@ export type DossierCreateWithoutFacturesInput = {
   client: Prisma.ClientCreateNestedOneWithoutDossiersInput
   honoraires?: Prisma.HonoraireCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementCreateNestedManyWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutFacturesInput = {
@@ -747,6 +782,7 @@ export type DossierUncheckedCreateWithoutFacturesInput = {
   updatedAt?: Date | string
   honoraires?: Prisma.HonoraireUncheckedCreateNestedManyWithoutDossierInput
   notes?: Prisma.NoteUncheckedCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementUncheckedCreateNestedManyWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutFacturesInput = {
@@ -779,6 +815,7 @@ export type DossierUpdateWithoutFacturesInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutDossiersNestedInput
   honoraires?: Prisma.HonoraireUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutFacturesInput = {
@@ -795,6 +832,7 @@ export type DossierUncheckedUpdateWithoutFacturesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   honoraires?: Prisma.HonoraireUncheckedUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUncheckedUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUncheckedUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutNotesInput = {
@@ -811,6 +849,7 @@ export type DossierCreateWithoutNotesInput = {
   client: Prisma.ClientCreateNestedOneWithoutDossiersInput
   honoraires?: Prisma.HonoraireCreateNestedManyWithoutDossierInput
   factures?: Prisma.FactureCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementCreateNestedManyWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutNotesInput = {
@@ -827,6 +866,7 @@ export type DossierUncheckedCreateWithoutNotesInput = {
   updatedAt?: Date | string
   honoraires?: Prisma.HonoraireUncheckedCreateNestedManyWithoutDossierInput
   factures?: Prisma.FactureUncheckedCreateNestedManyWithoutDossierInput
+  evenements?: Prisma.EvenementUncheckedCreateNestedManyWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutNotesInput = {
@@ -859,6 +899,7 @@ export type DossierUpdateWithoutNotesInput = {
   client?: Prisma.ClientUpdateOneRequiredWithoutDossiersNestedInput
   honoraires?: Prisma.HonoraireUpdateManyWithoutDossierNestedInput
   factures?: Prisma.FactureUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutNotesInput = {
@@ -875,6 +916,91 @@ export type DossierUncheckedUpdateWithoutNotesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   honoraires?: Prisma.HonoraireUncheckedUpdateManyWithoutDossierNestedInput
   factures?: Prisma.FactureUncheckedUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUncheckedUpdateManyWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutEvenementsInput = {
+  id?: string
+  reference: string
+  titre: string
+  description?: string | null
+  statut?: string
+  type: string
+  dateOuverture?: Date | string
+  dateCloture?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  client: Prisma.ClientCreateNestedOneWithoutDossiersInput
+  honoraires?: Prisma.HonoraireCreateNestedManyWithoutDossierInput
+  factures?: Prisma.FactureCreateNestedManyWithoutDossierInput
+  notes?: Prisma.NoteCreateNestedManyWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutEvenementsInput = {
+  id?: string
+  reference: string
+  titre: string
+  description?: string | null
+  statut?: string
+  type: string
+  dateOuverture?: Date | string
+  dateCloture?: Date | string | null
+  clientId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  honoraires?: Prisma.HonoraireUncheckedCreateNestedManyWithoutDossierInput
+  factures?: Prisma.FactureUncheckedCreateNestedManyWithoutDossierInput
+  notes?: Prisma.NoteUncheckedCreateNestedManyWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutEvenementsInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutEvenementsInput, Prisma.DossierUncheckedCreateWithoutEvenementsInput>
+}
+
+export type DossierUpsertWithoutEvenementsInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutEvenementsInput, Prisma.DossierUncheckedUpdateWithoutEvenementsInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutEvenementsInput, Prisma.DossierUncheckedCreateWithoutEvenementsInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutEvenementsInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutEvenementsInput, Prisma.DossierUncheckedUpdateWithoutEvenementsInput>
+}
+
+export type DossierUpdateWithoutEvenementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  reference?: Prisma.StringFieldUpdateOperationsInput | string
+  titre?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  statut?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
+  dateOuverture?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dateCloture?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  client?: Prisma.ClientUpdateOneRequiredWithoutDossiersNestedInput
+  honoraires?: Prisma.HonoraireUpdateManyWithoutDossierNestedInput
+  factures?: Prisma.FactureUpdateManyWithoutDossierNestedInput
+  notes?: Prisma.NoteUpdateManyWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutEvenementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  reference?: Prisma.StringFieldUpdateOperationsInput | string
+  titre?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  statut?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
+  dateOuverture?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dateCloture?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  clientId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  honoraires?: Prisma.HonoraireUncheckedUpdateManyWithoutDossierNestedInput
+  factures?: Prisma.FactureUncheckedUpdateManyWithoutDossierNestedInput
+  notes?: Prisma.NoteUncheckedUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierCreateManyClientInput = {
@@ -904,6 +1030,7 @@ export type DossierUpdateWithoutClientInput = {
   honoraires?: Prisma.HonoraireUpdateManyWithoutDossierNestedInput
   factures?: Prisma.FactureUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutClientInput = {
@@ -920,6 +1047,7 @@ export type DossierUncheckedUpdateWithoutClientInput = {
   honoraires?: Prisma.HonoraireUncheckedUpdateManyWithoutDossierNestedInput
   factures?: Prisma.FactureUncheckedUpdateManyWithoutDossierNestedInput
   notes?: Prisma.NoteUncheckedUpdateManyWithoutDossierNestedInput
+  evenements?: Prisma.EvenementUncheckedUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateManyWithoutClientInput = {
@@ -944,12 +1072,14 @@ export type DossierCountOutputType = {
   honoraires: number
   factures: number
   notes: number
+  evenements: number
 }
 
 export type DossierCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   honoraires?: boolean | DossierCountOutputTypeCountHonorairesArgs
   factures?: boolean | DossierCountOutputTypeCountFacturesArgs
   notes?: boolean | DossierCountOutputTypeCountNotesArgs
+  evenements?: boolean | DossierCountOutputTypeCountEvenementsArgs
 }
 
 /**
@@ -983,6 +1113,13 @@ export type DossierCountOutputTypeCountNotesArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.NoteWhereInput
 }
 
+/**
+ * DossierCountOutputType without action
+ */
+export type DossierCountOutputTypeCountEvenementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EvenementWhereInput
+}
+
 
 export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1000,6 +1137,7 @@ export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   honoraires?: boolean | Prisma.Dossier$honorairesArgs<ExtArgs>
   factures?: boolean | Prisma.Dossier$facturesArgs<ExtArgs>
   notes?: boolean | Prisma.Dossier$notesArgs<ExtArgs>
+  evenements?: boolean | Prisma.Dossier$evenementsArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dossier"]>
 
@@ -1053,6 +1191,7 @@ export type DossierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   honoraires?: boolean | Prisma.Dossier$honorairesArgs<ExtArgs>
   factures?: boolean | Prisma.Dossier$facturesArgs<ExtArgs>
   notes?: boolean | Prisma.Dossier$notesArgs<ExtArgs>
+  evenements?: boolean | Prisma.Dossier$evenementsArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DossierIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1069,6 +1208,7 @@ export type $DossierPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     honoraires: Prisma.$HonorairePayload<ExtArgs>[]
     factures: Prisma.$FacturePayload<ExtArgs>[]
     notes: Prisma.$NotePayload<ExtArgs>[]
+    evenements: Prisma.$EvenementPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1480,6 +1620,7 @@ export interface Prisma__DossierClient<T, Null = never, ExtArgs extends runtime.
   honoraires<T extends Prisma.Dossier$honorairesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$honorairesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HonorairePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   factures<T extends Prisma.Dossier$facturesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$facturesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FacturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   notes<T extends Prisma.Dossier$notesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$notesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  evenements<T extends Prisma.Dossier$evenementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$evenementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EvenementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1988,6 +2129,30 @@ export type Dossier$notesArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.NoteScalarFieldEnum | Prisma.NoteScalarFieldEnum[]
+}
+
+/**
+ * Dossier.evenements
+ */
+export type Dossier$evenementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Evenement
+   */
+  select?: Prisma.EvenementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Evenement
+   */
+  omit?: Prisma.EvenementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EvenementInclude<ExtArgs> | null
+  where?: Prisma.EvenementWhereInput
+  orderBy?: Prisma.EvenementOrderByWithRelationInput | Prisma.EvenementOrderByWithRelationInput[]
+  cursor?: Prisma.EvenementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EvenementScalarFieldEnum | Prisma.EvenementScalarFieldEnum[]
 }
 
 /**

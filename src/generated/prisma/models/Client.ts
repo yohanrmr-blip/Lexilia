@@ -231,6 +231,7 @@ export type ClientWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   dossiers?: Prisma.DossierListRelationFilter
+  evenements?: Prisma.EvenementListRelationFilter
 }
 
 export type ClientOrderByWithRelationInput = {
@@ -246,6 +247,7 @@ export type ClientOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   dossiers?: Prisma.DossierOrderByRelationAggregateInput
+  evenements?: Prisma.EvenementOrderByRelationAggregateInput
 }
 
 export type ClientWhereUniqueInput = Prisma.AtLeast<{
@@ -264,6 +266,7 @@ export type ClientWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Client"> | Date | string
   dossiers?: Prisma.DossierListRelationFilter
+  evenements?: Prisma.EvenementListRelationFilter
 }, "id">
 
 export type ClientOrderByWithAggregationInput = {
@@ -313,6 +316,7 @@ export type ClientCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   dossiers?: Prisma.DossierCreateNestedManyWithoutClientInput
+  evenements?: Prisma.EvenementCreateNestedManyWithoutClientInput
 }
 
 export type ClientUncheckedCreateInput = {
@@ -328,6 +332,7 @@ export type ClientUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutClientInput
+  evenements?: Prisma.EvenementUncheckedCreateNestedManyWithoutClientInput
 }
 
 export type ClientUpdateInput = {
@@ -343,6 +348,7 @@ export type ClientUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dossiers?: Prisma.DossierUpdateManyWithoutClientNestedInput
+  evenements?: Prisma.EvenementUpdateManyWithoutClientNestedInput
 }
 
 export type ClientUncheckedUpdateInput = {
@@ -358,6 +364,7 @@ export type ClientUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutClientNestedInput
+  evenements?: Prisma.EvenementUncheckedUpdateManyWithoutClientNestedInput
 }
 
 export type ClientCreateManyInput = {
@@ -449,6 +456,11 @@ export type ClientScalarRelationFilter = {
   isNot?: Prisma.ClientWhereInput
 }
 
+export type ClientNullableScalarRelationFilter = {
+  is?: Prisma.ClientWhereInput | null
+  isNot?: Prisma.ClientWhereInput | null
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -475,6 +487,22 @@ export type ClientUpdateOneRequiredWithoutDossiersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ClientUpdateToOneWithWhereWithoutDossiersInput, Prisma.ClientUpdateWithoutDossiersInput>, Prisma.ClientUncheckedUpdateWithoutDossiersInput>
 }
 
+export type ClientCreateNestedOneWithoutEvenementsInput = {
+  create?: Prisma.XOR<Prisma.ClientCreateWithoutEvenementsInput, Prisma.ClientUncheckedCreateWithoutEvenementsInput>
+  connectOrCreate?: Prisma.ClientCreateOrConnectWithoutEvenementsInput
+  connect?: Prisma.ClientWhereUniqueInput
+}
+
+export type ClientUpdateOneWithoutEvenementsNestedInput = {
+  create?: Prisma.XOR<Prisma.ClientCreateWithoutEvenementsInput, Prisma.ClientUncheckedCreateWithoutEvenementsInput>
+  connectOrCreate?: Prisma.ClientCreateOrConnectWithoutEvenementsInput
+  upsert?: Prisma.ClientUpsertWithoutEvenementsInput
+  disconnect?: Prisma.ClientWhereInput | boolean
+  delete?: Prisma.ClientWhereInput | boolean
+  connect?: Prisma.ClientWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ClientUpdateToOneWithWhereWithoutEvenementsInput, Prisma.ClientUpdateWithoutEvenementsInput>, Prisma.ClientUncheckedUpdateWithoutEvenementsInput>
+}
+
 export type ClientCreateWithoutDossiersInput = {
   id?: string
   nom: string
@@ -487,6 +515,7 @@ export type ClientCreateWithoutDossiersInput = {
   siret?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  evenements?: Prisma.EvenementCreateNestedManyWithoutClientInput
 }
 
 export type ClientUncheckedCreateWithoutDossiersInput = {
@@ -501,6 +530,7 @@ export type ClientUncheckedCreateWithoutDossiersInput = {
   siret?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  evenements?: Prisma.EvenementUncheckedCreateNestedManyWithoutClientInput
 }
 
 export type ClientCreateOrConnectWithoutDossiersInput = {
@@ -531,6 +561,7 @@ export type ClientUpdateWithoutDossiersInput = {
   siret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evenements?: Prisma.EvenementUpdateManyWithoutClientNestedInput
 }
 
 export type ClientUncheckedUpdateWithoutDossiersInput = {
@@ -545,6 +576,83 @@ export type ClientUncheckedUpdateWithoutDossiersInput = {
   siret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evenements?: Prisma.EvenementUncheckedUpdateManyWithoutClientNestedInput
+}
+
+export type ClientCreateWithoutEvenementsInput = {
+  id?: string
+  nom: string
+  prenom?: string | null
+  email?: string | null
+  telephone?: string | null
+  adresse?: string | null
+  type?: string
+  societe?: string | null
+  siret?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  dossiers?: Prisma.DossierCreateNestedManyWithoutClientInput
+}
+
+export type ClientUncheckedCreateWithoutEvenementsInput = {
+  id?: string
+  nom: string
+  prenom?: string | null
+  email?: string | null
+  telephone?: string | null
+  adresse?: string | null
+  type?: string
+  societe?: string | null
+  siret?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutClientInput
+}
+
+export type ClientCreateOrConnectWithoutEvenementsInput = {
+  where: Prisma.ClientWhereUniqueInput
+  create: Prisma.XOR<Prisma.ClientCreateWithoutEvenementsInput, Prisma.ClientUncheckedCreateWithoutEvenementsInput>
+}
+
+export type ClientUpsertWithoutEvenementsInput = {
+  update: Prisma.XOR<Prisma.ClientUpdateWithoutEvenementsInput, Prisma.ClientUncheckedUpdateWithoutEvenementsInput>
+  create: Prisma.XOR<Prisma.ClientCreateWithoutEvenementsInput, Prisma.ClientUncheckedCreateWithoutEvenementsInput>
+  where?: Prisma.ClientWhereInput
+}
+
+export type ClientUpdateToOneWithWhereWithoutEvenementsInput = {
+  where?: Prisma.ClientWhereInput
+  data: Prisma.XOR<Prisma.ClientUpdateWithoutEvenementsInput, Prisma.ClientUncheckedUpdateWithoutEvenementsInput>
+}
+
+export type ClientUpdateWithoutEvenementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  adresse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.StringFieldUpdateOperationsInput | string
+  societe?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  siret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dossiers?: Prisma.DossierUpdateManyWithoutClientNestedInput
+}
+
+export type ClientUncheckedUpdateWithoutEvenementsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  adresse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  type?: Prisma.StringFieldUpdateOperationsInput | string
+  societe?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  siret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dossiers?: Prisma.DossierUncheckedUpdateManyWithoutClientNestedInput
 }
 
 
@@ -554,10 +662,12 @@ export type ClientUncheckedUpdateWithoutDossiersInput = {
 
 export type ClientCountOutputType = {
   dossiers: number
+  evenements: number
 }
 
 export type ClientCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dossiers?: boolean | ClientCountOutputTypeCountDossiersArgs
+  evenements?: boolean | ClientCountOutputTypeCountEvenementsArgs
 }
 
 /**
@@ -577,6 +687,13 @@ export type ClientCountOutputTypeCountDossiersArgs<ExtArgs extends runtime.Types
   where?: Prisma.DossierWhereInput
 }
 
+/**
+ * ClientCountOutputType without action
+ */
+export type ClientCountOutputTypeCountEvenementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EvenementWhereInput
+}
+
 
 export type ClientSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -591,6 +708,7 @@ export type ClientSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   createdAt?: boolean
   updatedAt?: boolean
   dossiers?: boolean | Prisma.Client$dossiersArgs<ExtArgs>
+  evenements?: boolean | Prisma.Client$evenementsArgs<ExtArgs>
   _count?: boolean | Prisma.ClientCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["client"]>
 
@@ -639,6 +757,7 @@ export type ClientSelectScalar = {
 export type ClientOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nom" | "prenom" | "email" | "telephone" | "adresse" | "type" | "societe" | "siret" | "createdAt" | "updatedAt", ExtArgs["result"]["client"]>
 export type ClientInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dossiers?: boolean | Prisma.Client$dossiersArgs<ExtArgs>
+  evenements?: boolean | Prisma.Client$evenementsArgs<ExtArgs>
   _count?: boolean | Prisma.ClientCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ClientIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -648,6 +767,7 @@ export type $ClientPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   name: "Client"
   objects: {
     dossiers: Prisma.$DossierPayload<ExtArgs>[]
+    evenements: Prisma.$EvenementPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1056,6 +1176,7 @@ readonly fields: ClientFieldRefs;
 export interface Prisma__ClientClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   dossiers<T extends Prisma.Client$dossiersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Client$dossiersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DossierPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  evenements<T extends Prisma.Client$evenementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Client$evenementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EvenementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1508,6 +1629,30 @@ export type Client$dossiersArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   distinct?: Prisma.DossierScalarFieldEnum | Prisma.DossierScalarFieldEnum[]
+}
+
+/**
+ * Client.evenements
+ */
+export type Client$evenementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Evenement
+   */
+  select?: Prisma.EvenementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Evenement
+   */
+  omit?: Prisma.EvenementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EvenementInclude<ExtArgs> | null
+  where?: Prisma.EvenementWhereInput
+  orderBy?: Prisma.EvenementOrderByWithRelationInput | Prisma.EvenementOrderByWithRelationInput[]
+  cursor?: Prisma.EvenementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EvenementScalarFieldEnum | Prisma.EvenementScalarFieldEnum[]
 }
 
 /**

@@ -57,7 +57,9 @@ export const ModelName = {
   Facture: 'Facture',
   LigneFacture: 'LigneFacture',
   Paiement: 'Paiement',
-  Note: 'Note'
+  Note: 'Note',
+  Evenement: 'Evenement',
+  Modele: 'Modele'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -172,6 +174,36 @@ export const NoteScalarFieldEnum = {
 } as const
 
 export type NoteScalarFieldEnum = (typeof NoteScalarFieldEnum)[keyof typeof NoteScalarFieldEnum]
+
+
+export const EvenementScalarFieldEnum = {
+  id: 'id',
+  titre: 'titre',
+  description: 'description',
+  debut: 'debut',
+  fin: 'fin',
+  type: 'type',
+  lieu: 'lieu',
+  dossierId: 'dossierId',
+  clientId: 'clientId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EvenementScalarFieldEnum = (typeof EvenementScalarFieldEnum)[keyof typeof EvenementScalarFieldEnum]
+
+
+export const ModeleScalarFieldEnum = {
+  id: 'id',
+  nom: 'nom',
+  description: 'description',
+  categorie: 'categorie',
+  contenu: 'contenu',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ModeleScalarFieldEnum = (typeof ModeleScalarFieldEnum)[keyof typeof ModeleScalarFieldEnum]
 
 
 export const SortOrder = {
