@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Client {
+  id        String    @id @default(cuid())
+  nom       String
+  prenom    String?
+  email     String?
+  telephone String?
+  adresse   String?
+  type      String    @default("particulier")
+  societe   String?
+  siret     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  dossiers  Dossier[]
+}
+
+model Dossier {
+  id            String      @id @default(cuid())
+  reference     String      @unique
+  titre         String
+  description   String?
+  statut        String      @default("ouvert")
+  type          String
+  dateOuverture DateTime    @default(now())
+  dateCloture   DateTime?
+  clientId      String
+  client        Client      @relation(fields: [clientId], references: [id])
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  honoraires    Honoraire[]
+  factures      Facture[]
+  notes         Note[]
+}
+
+model Honoraire {
+  id          String   @id @default(cuid())
+  date        DateTime
+  description String
+  heures      Float
+  tauxHoraire Float
+  montant     Float
+  dossierId   String
+  dossier     Dossier  @relation(fields: [dossierId], references: [id])
+  createdAt   DateTime @default(now())
+}
+
+model Facture {
+  id           String         @id @default(cuid())
+  numero       String         @unique
+  dateEmission DateTime       @default(now())
+  dateEcheance DateTime
+  montantHT    Float
+  tva          Float          @default(20)
+  montantTTC   Float
+  statut       String         @default("brouillon")
+  dossierId    String
+  dossier      Dossier        @relation(fields: [dossierId], references: [id])
+  lignes       LigneFacture[]
+  paiements    Paiement[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model LigneFacture {
+  id           String  @id @default(cuid())
+  description  String
+  quantite     Float
+  prixUnitaire Float
+  montant      Float
+  factureId    String
+  facture      Facture @relation(fields: [factureId], references: [id])
+}
+
+model Paiement {
+  id        String   @id @default(cuid())
+  date      DateTime
+  montant   Float
+  mode      String
+  reference String?
+  factureId String
+  facture   Facture  @relation(fields: [factureId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  contenu   String
+  dossierId String
+  dossier   Dossier  @relation(fields: [dossierId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
